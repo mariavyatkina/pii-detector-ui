@@ -15,7 +15,8 @@ export async function analyzeText(
   text: string,
   redact: boolean
 ): Promise<DetectionResult> {
-  const response = await fetch("http://localhost:8080/api/pii/analyze", {
+  const API_BASE = import.meta.env.VITE_API_URL;
+  const response = await fetch(`${API_BASE}/api/pii/analyze`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
